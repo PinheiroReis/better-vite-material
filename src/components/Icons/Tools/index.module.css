@@ -12,10 +12,10 @@
 img {
 	width: 100px;
 	height: 100px;
-	transition: 1s;
+	transition: 0.5s;
 }
 
 img:hover {
 	transform: scale(1.5);
-	transition: 1s;
+	transition: 0.5s;
 }

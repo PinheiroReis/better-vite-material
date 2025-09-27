@@ -1,13 +1,9 @@
-import Title from "./components/Text/Title/index.tsx";
-import Welcome from "./components/Text/Welcome/intex.tsx";
-import IconsTools from "./components/Icons/Tools/index.tsx";
+import { Outlet } from "react-router-dom";
 
 function App() {
 	return (
 		<div>
-			<Title />
-			<Welcome />
-			<IconsTools />
+			<Outlet />
 		</div>
 	);
 }
