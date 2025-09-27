@@ -1,0 +1,21 @@
+.container {
+	width: 100%;
+	margin-top: 100px;
+	margin-bottom: 100px;
+	display: flex;
+	display: flex;
+	flex-direction: row;
+	place-content: center;
+	gap: 90px;
+}
+
+img {
+	width: 100px;
+	height: 100px;
+	transition: 1s;
+}
+
+img:hover {
+	transform: scale(1.5);
+	transition: 1s;
+}
