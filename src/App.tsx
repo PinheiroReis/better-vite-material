@@ -1,15 +1,11 @@
-import GreenButton from "./components/GreenButton.tsx";
-import Welcome from "./components/Welcome.tsx";
+import Title from "./components/Text/Title/index.tsx";
+import Welcome from "./components/Text/Welcome/intex.tsx";
 
 function App() {
 	return (
 		<>
-			<div className={`flex text-justify`}>
-				<div>
-					<Welcome />
-					<GreenButton>Green Button</GreenButton>
-				</div>
-			</div>
+			<Title />
+			<Welcome />
 		</>
 	);
 }
