@@ -1,73 +1,86 @@
-# React + TypeScript + Vite
+# Better Vite Template
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a modern and opinionated Vite template for building React applications with TypeScript, TailwindCSS, ESLint, Prettier, and Vitest. It provides a robust and well-configured starting point, incorporating best practices for development, testing, and code quality.
 
-Currently, two official plugins are available:
+## Technologies Included
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+*   **React 19 & TypeScript:** Latest versions for modern React development.
+*   **Vite:** Fast development server and build tool.
+*   **TailwindCSS:** Utility-first CSS framework for rapid UI development.
+*   **ESLint:** Pluggable JavaScript linter for code quality and style consistency.
+*   **Prettier:** Opinionated code formatter for consistent code style.
+*   **Vitest:** Fast unit test framework powered by Vite, with `jsdom` environment and `@testing-library/react` for component testing.
+*   **GitHub Actions:** Continuous Integration setup for automated testing across multiple Node.js versions.
+*   **Absolute Imports:** Configured for easy module imports using `@/*`.
 
-## React Compiler
+## Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Prerequisites
 
-## Expanding the ESLint configuration
+*   Node.js (v18.x or higher recommended)
+*   npm (or yarn/pnpm)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Installation
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+1.  Clone the repository:
+    ```bash
+    git clone [repository-url]
+    cd [repository-name]
+    ```
+2.  Install dependencies:
+    ```bash
+    npm install
+    ```
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Available Scripts
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+*   `npm run dev`: Starts the development server.
+*   `npm run build`: Builds the project for production.
+*   `npm run preview`: Serves the production build locally.
+*   `npm run typecheck`: Checks TypeScript types.
+*   `npm run prettier:write`: Formats code with Prettier.
+*   `npm run lint`: Lints code with ESLint.
+*   `npm run test`: Runs typecheck, prettier check, lint, and vitest.
+
+## Project Structure
+
+The project follows a standard structure for React applications:
+
+```
+.
+├── public/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   │   ├── Buttons/
+│   │   ├── Icons/
+│   │   └── Text/
+│   ├── pages/
+│   │   ├── About/
+│   │   └── Home/
+│   ├── App.tsx
+│   ├── index.css
+│   ├── main.tsx
+│   └── router.tsx
+├── .github/workflows/
+│   └── ci.yml
+├── .gitignore
+├── .prettierrc.mjs
+├── eslint.config.js
+├── index.html
+├── package.json
+├── postcss.config.mjs
+├── README.md
+├── tsconfig.json
+├── vite.config.ts
+├── vitest.config.ts
+└── vitest.setup.mts
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Contributing
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Contributions are welcome! Please ensure your code adheres to the project's coding standards (ESLint and Prettier) and that all tests pass.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## License
+
+This project is licensed under the MIT License.
