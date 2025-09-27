@@ -5,8 +5,8 @@ import classes from './index.module.css';
 export default function IconsTools() {
   return (
     <div className={classes.container}>
-      <img src={viteIcon} alt="vite_icon" data-testid="vite_img" />
-      <img src={reactIcon} alt="react_icon" data-testid="react_img" />
+      <img className={classes.image} src={viteIcon} alt="vite_icon" data-testid="vite_img" />
+      <img className={classes.image} src={reactIcon} alt="react_icon" data-testid="react_img" />
     </div>
   );
 }

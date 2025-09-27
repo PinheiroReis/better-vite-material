@@ -22,25 +22,25 @@
   color: #fff;
 }
 
-h1 {
+.title {
   font-size: 2em;
   color: #fff;
   margin-bottom: 10px;
 }
 
-p {
+.mensage {
   font-size: 1.2em;
   color: #fff;
   margin-bottom: 20px;
 }
 
-a {
+.link {
   color: #fff;
   text-decoration: underline;
   z-index: 1;
 }
 
-a:hover {
+.link:hover {
   text-decoration: none;
   z-index: 1;
 }
