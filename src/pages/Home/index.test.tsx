@@ -7,7 +7,7 @@ describe('PageHome component', () => {
     render(<PageHome />);
     expect(screen.getByText('The Better Vite Template')).toBeInTheDocument();
     expect(
-      screen.getByText('Welcome to Better Vite, the better way to use vite.')
+      screen.getByText('Welcome to Better Vite, the best way to use vite.')
     ).toBeInTheDocument();
     expect(screen.getByTestId('vite_img')).toBeInTheDocument();
     expect(screen.getByTestId('react_img')).toBeInTheDocument();

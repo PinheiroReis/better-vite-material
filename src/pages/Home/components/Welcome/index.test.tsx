@@ -6,7 +6,7 @@ describe('Welcome component', () => {
   it('should render the Welcome component', () => {
     render(<Welcome />);
     expect(
-      screen.getByText('Welcome to Better Vite, the better way to use vite.')
+      screen.getByText('Welcome to Better Vite, the best way to use vite.')
     ).toBeInTheDocument();
   });
 });
