@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-import Welcome from '@/components/Text/Welcome/index.tsx';
+import Welcome from './index.tsx';
 
 describe('Welcome component', () => {
   it('should render the Welcome component', () => {

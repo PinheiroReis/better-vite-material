@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-import PageHome from '@/pages/Home/index.tsx';
+import PageHome from './index.tsx';
 
 describe('PageHome component', () => {
   it('should render the home page', () => {

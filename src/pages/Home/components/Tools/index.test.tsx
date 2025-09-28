@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-import IconsTools from '@/components/Icons/Tools/index.tsx';
+import IconsTools from './index.tsx';
 
 describe('IconsTools component', () => {
   it('should render React and Vite icons.', () => {
