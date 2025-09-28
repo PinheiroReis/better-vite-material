@@ -4,21 +4,21 @@ This is a modern and opinionated Vite template for building React applications w
 
 ## Technologies Included
 
-*   **React 19 & TypeScript:** Latest versions for modern React development.
-*   **Vite:** Fast development server and build tool.
-*   **TailwindCSS:** Utility-first CSS framework for rapid UI development.
-*   **ESLint:** Pluggable JavaScript linter for code quality and style consistency.
-*   **Prettier:** Opinionated code formatter for consistent code style.
-*   **Vitest:** Fast unit test framework powered by Vite, with `jsdom` environment and `@testing-library/react` for component testing.
-*   **GitHub Actions:** Continuous Integration setup for automated testing across multiple Node.js versions.
-*   **Absolute Imports:** Configured for easy module imports using `@/*`.
+- **React 19 & TypeScript:** Latest versions for modern React development.
+- **Vite:** Fast development server and build tool.
+- **TailwindCSS:** Utility-first CSS framework for rapid UI development.
+- **ESLint:** Pluggable JavaScript linter for code quality and style consistency.
+- **Prettier:** Opinionated code formatter for consistent code style.
+- **Vitest:** Fast unit test framework powered by Vite, with `jsdom` environment and `@testing-library/react` for component testing.
+- **GitHub Actions:** Continuous Integration setup for automated testing across multiple Node.js versions.
+- **Absolute Imports:** Configured for easy module imports using `@/*`.
 
 ## Getting Started
 
 ### Prerequisites
 
-*   Node.js (v18.x or higher recommended)
-*   npm (or yarn/pnpm)
+- Node.js (v18.x or higher recommended)
+- npm (or yarn/pnpm)
 
 ### Installation
 
@@ -34,13 +34,13 @@ This is a modern and opinionated Vite template for building React applications w
 
 ### Available Scripts
 
-*   `npm run dev`: Starts the development server.
-*   `npm run build`: Builds the project for production.
-*   `npm run preview`: Serves the production build locally.
-*   `npm run typecheck`: Checks TypeScript types.
-*   `npm run prettier:write`: Formats code with Prettier.
-*   `npm run lint`: Lints code with ESLint.
-*   `npm run test`: Runs typecheck, prettier check, lint, and vitest.
+- `npm run dev`: Starts the development server.
+- `npm run build`: Builds the project for production.
+- `npm run preview`: Serves the production build locally.
+- `npm run typecheck`: Checks TypeScript types.
+- `npm run prettier:write`: Formats code with Prettier.
+- `npm run lint`: Lints code with ESLint.
+- `npm run test`: Runs typecheck, prettier check, lint, and vitest.
 
 ## Project Structure
 
@@ -52,7 +52,6 @@ The project follows a standard structure for React applications:
 ├── src/
 │   ├── assets/
 │   ├── components/
-│   │   ├── Buttons/
 │   │   ├── Icons/
 │   │   └── Text/
 │   ├── pages/
@@ -74,6 +73,7 @@ The project follows a standard structure for React applications:
 ├── tsconfig.json
 ├── vite.config.ts
 ├── vitest.config.ts
+├── vitest.d.ts
 └── vitest.setup.mts
 ```
 
