@@ -5,6 +5,7 @@ import DashboardPage from '@/pages/Dashboard/index.tsx';
 import NotFound from '@/pages/Errors/NotFound/index.tsx';
 import ServerError from '@/pages/Errors/ServerError/index.tsx';
 import PageHome from '@/pages/Home/index.tsx';
+import Showcase from '@/pages/Showcase/index.tsx';
 
 export const router = createBrowserRouter([
   {
@@ -14,6 +15,7 @@ export const router = createBrowserRouter([
     children: [
       { index: true, element: <PageHome /> },
       { path: 'dashboard', element: <DashboardPage /> },
+      { path: 'showcase', element: <Showcase /> },
       { path: 'error', element: <ThrowError /> },
       { path: '*', element: <NotFound /> },
     ],

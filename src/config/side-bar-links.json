@@ -8,5 +8,10 @@
     "text": "Dashboard",
     "path": "/dashboard",
     "icon": "Dashboard"
+  },
+  {
+    "text": "Showcase",
+    "path": "/showcase",
+    "icon": "Widgets"
   }
 ]
