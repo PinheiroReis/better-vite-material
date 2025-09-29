@@ -1,45 +1,37 @@
 CREATE TABLE "users" (
-  "id" integer PRIMARY KEY,
-  "username" varchar,
-  "created_at" timestamp
+  "id" SERIAL PRIMARY KEY,
+  "username" VARCHAR(255),
+  "created_at" TIMESTAMP
 );
 
 CREATE TABLE "books" (
-  "id" integer PRIMARY KEY,
-  "title" varchar,
-  "author" varchar,
-  "synopsis" varchar,
-  "created_at" timestamp
-);
-
-CREATE TABLE "belong" (
-  "book_id" integer,
-  "gender_id" integer,
-  "created_at" timestamp
+  "id" SERIAL PRIMARY KEY,
+  "title" TEXT NOT NULL,
+  "author" TEXT NOT NULL,
+  "year" INTEGER NOT NULL,
+  "description" TEXT
 );
 
 CREATE TABLE "genders" (
-  "id" integer PRIMARY KEY,
-  "name" varchar,
-  "created_at" timestamp
+  "id" SERIAL PRIMARY KEY,
+  "name" VARCHAR(255),
+  "created_at" TIMESTAMP
+);
+
+CREATE TABLE "belong" (
+  "book_id" INTEGER REFERENCES "books"("id"),
+  "gender_id" INTEGER REFERENCES "genders"("id"),
+  "created_at" TIMESTAMP
 );
 
 CREATE TABLE "loans" (
-  "id" integer PRIMARY KEY,
-  "user_id" integer,
-  "book_id" integer,
-  "loaned_at" timestamp,
-  "due_at" timestamp,
-  "returned_at" timestamp,
-  "status" varchar
+  "id" SERIAL PRIMARY KEY,
+  "user_id" INTEGER REFERENCES "users"("id"),
+  "book_id" INTEGER REFERENCES "books"("id"),
+  "loaned_at" TIMESTAMP,
+  "due_at" TIMESTAMP,
+  "returned_at" TIMESTAMP,
+  "status" VARCHAR(50)
 );
 
 COMMENT ON COLUMN "loans"."status" IS 'active, returned, late, etc.';
-
-ALTER TABLE "belong" ADD FOREIGN KEY ("gender_id") REFERENCES "genders" ("id");
-
-ALTER TABLE "belong" ADD FOREIGN KEY ("book_id") REFERENCES "books" ("id");
-
-ALTER TABLE "loans" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id");
-
-ALTER TABLE "loans" ADD FOREIGN KEY ("book_id") REFERENCES "books" ("id");

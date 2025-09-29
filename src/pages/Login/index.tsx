@@ -12,7 +12,7 @@ import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import { ThemeProvider } from '@/providers/ThemeProvider';
+import { useNavigate } from 'react-router-dom';
 import ForgotPassword from './components/ForgotPassword';
 
 const Card = styled(MuiCard)(({ theme }) => ({
@@ -59,6 +59,7 @@ export default function SignIn() {
   const [passwordError, setPasswordError] = React.useState(false);
   const [passwordErrorMessage, setPasswordErrorMessage] = React.useState('');
   const [open, setOpen] = React.useState(false);
+  const navigate = useNavigate();
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -69,15 +70,16 @@ export default function SignIn() {
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    if (emailError || passwordError) {
-      event.preventDefault();
-      return;
-    }
+    event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    const email = data.get('email');
+    const password = data.get('password');
+    if (email === 'test@email.com' && password === 'testpassword123') {
+      alert('Login realizado com sucesso!');
+      navigate('/library');
+    } else {
+      alert('Credenciais inválidas.');
+    }
   };
 
   const validateInputs = () => {
@@ -108,7 +110,7 @@ export default function SignIn() {
   };
 
   return (
-    <ThemeProvider>
+    <>
       <CssBaseline enableColorScheme />
       <SignInContainer direction="column" justifyContent="space-between">
         <Card variant="outlined">
@@ -193,6 +195,6 @@ export default function SignIn() {
           </Typography>
         </Card>
       </SignInContainer>
-    </ThemeProvider>
+    </>
   );
 }
