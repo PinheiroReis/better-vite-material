@@ -9,7 +9,7 @@ const pastelColors = {
   orange: '#ffd180',
   purple: '#b39ddb',
   pink: '#f48fb1',
-  cyan: '#b1e0e2',
+  cyan: '#008B8B',
 };
 
 const pastelDark: Record<keyof typeof pastelColors, string> = Object.fromEntries(

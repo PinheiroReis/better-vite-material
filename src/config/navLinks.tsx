@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { Dashboard, Flare, Home } from '@mui/icons-material';
+import { Dashboard, Flare, Home, Login } from '@mui/icons-material';
 
 export interface NavLinkProps {
   text: string;
@@ -17,6 +17,11 @@ const navLink: NavLinkProps[] = [
     text: 'Dashboard',
     path: '/dashboard',
     icon: <Dashboard />,
+  },
+  {
+    text: 'Login',
+    path: '/login',
+    icon: <Login />,
   },
   {
     text: 'Showcase',
