@@ -1,86 +1,92 @@
-# Better Vite Template
+# Comunitary Library
 
-This is a modern and opinionated Vite template for building React applications with TypeScript, TailwindCSS, ESLint, Prettier, and Vitest. It provides a robust and well-configured starting point, incorporating best practices for development, testing, and code quality.
+## Requisitos funcionais
 
-## Technologies Included
+- **Cadastro de livros:**
+  - Permitir adicionar novos livros com título, autor, ano de publicação e descrição.
+  - Permitir visualizar todos os livros cadastrados.
+  - Permitir identificar se o livro está disponível ou emprestado.
 
-- **React 19 & TypeScript:** Latest versions for modern React development.
-- **Vite:** Fast development server and build tool.
-- **TailwindCSS:** Utility-first CSS framework for rapid UI development.
-- **ESLint:** Pluggable JavaScript linter for code quality and style consistency.
-- **Prettier:** Opinionated code formatter for consistent code style.
-- **Vitest:** Fast unit test framework powered by Vite, with `jsdom` environment and `@testing-library/react` for component testing.
-- **GitHub Actions:** Continuous Integration setup for automated testing across multiple Node.js versions.
-- **Absolute Imports:** Configured for easy module imports using `@/*`.
+- **Cadastro de usuários:**
+  - Permitir criar contas de usuários para acesso ao sistema.
+  - Permitir autenticação via login e senha.
 
-## Getting Started
+- **Empréstimos:**
+  - Permitir registrar o empréstimo de um livro para um usuário.
+  - Permitir visualizar quais livros estão emprestados e para quem.
+  - Permitir definir datas de empréstimo e devolução prevista.
 
-### Prerequisites
+- **Devoluções:**
+  - Permitir registrar a devolução de um livro.
+  - Atualizar o status do livro para disponível após devolução.
+  - Permitir visualizar histórico de empréstimos e devoluções.
 
-- Node.js (v18.x or higher recommended)
-- npm (or yarn/pnpm)
+Este projeto é uma aplicação web para gerenciamento e visualização de livros em uma biblioteca comunitária. O sistema foi desenvolvido com React, TypeScript, Vite, Material UI, ESLint, Prettier e Vitest, seguindo boas práticas de organização e testes.
 
-### Installation
+## Como funciona o site
 
-1.  Clone the repository:
-    ```bash
-    git clone [repository-url]
-    cd [repository-name]
-    ```
-2.  Install dependencies:
-    ```bash
-    npm install
-    ```
+- O site possui autenticação obrigatória: você só pode acessar as páginas protegidas (como a biblioteca de livros) após realizar login.
+- Após logar, você pode visualizar todos os livros cadastrados, ver se estão disponíveis ou emprestados, e acessar outras áreas do sistema.
+- O menu de navegação permite acessar as principais páginas: Dashboard, Login e Library.
+- O tema do site é responsivo e suporta modo escuro (dark mode).
+- Para sair do sistema, basta clicar no botão "Logout" na página da biblioteca.
 
-### Available Scripts
+## Como logar
 
-- `npm run dev`: Starts the development server.
-- `npm run build`: Builds the project for production.
-- `npm run preview`: Serves the production build locally.
-- `npm run typecheck`: Checks TypeScript types.
-- `npm run prettier:write`: Formats code with Prettier.
-- `npm run lint`: Lints code with ESLint.
-- `npm run test`: Runs typecheck, prettier check, lint, and vitest.
-
-## Project Structure
-
-The project follows a standard structure for React applications:
+- Acesse a página de login pelo menu ou diretamente em `/login`.
+- Use as credenciais abaixo para acessar o sistema:
 
 ```
-.
-├── public/
-├── src/
-│   ├── assets/
-│   ├── components/
-│   │   ├── Icons/
-│   │   └── Text/
-│   ├── pages/
-│   │   ├── About/
-│   │   └── Home/
-│   ├── App.tsx
-│   ├── index.css
-│   ├── main.tsx
-│   └── router.tsx
-├── .github/workflows/
-│   └── ci.yml
-├── .gitignore
-├── .prettierrc.mjs
-├── eslint.config.js
-├── index.html
-├── package.json
-├── postcss.config.mjs
-├── README.md
-├── tsconfig.json
-├── vite.config.ts
-├── vitest.config.ts
-├── vitest.d.ts
-└── vitest.setup.mts
+Email: test@email.com
+Senha: testpassword123
 ```
 
-## Contributing
+- Após o login bem-sucedido, você será redirecionado automaticamente para a página da biblioteca (`/library`).
+- Se tentar acessar qualquer página protegida sem estar logado, será redirecionado para o login.
 
-Contributions are welcome! Please ensure your code adheres to the project's coding standards (ESLint and Prettier) and that all tests pass.
+## Principais páginas
 
-## License
+- **Login**: Autenticação do usuário.
+- **Library**: Visualização dos livros, status de empréstimo e botão de logout.
+- **Dashboard**: Página administrativa (exemplo/template).
 
-This project is licensed under the MIT License.
+## Scripts disponíveis
+
+- `npm run dev`: Inicia o servidor de desenvolvimento.
+- `npm run build`: Gera o build de produção.
+- `npm run preview`: Serve o build de produção localmente.
+- `npm run typecheck`: Verifica os tipos do TypeScript.
+- `npm run prettier:write`: Formata o código com Prettier.
+- `npm run lint`: Lint do código com ESLint.
+- `npm run test`: Executa os testes automatizados com Vitest.
+
+## Estrutura do projeto
+
+```
+src/
+├── components/
+├── config/
+├── pages/
+│   ├── Dashboard/
+│   ├── Errors/
+│   ├── Library/
+│   └── Login/
+├── providers/
+├── contexts/
+├── App.tsx
+├── router.tsx
+└── ...
+```
+
+## Testes
+
+- Todos os componentes e páginas principais possuem testes automatizados.
+- Para rodar os testes, utilize `npm run test`.
+
+## Contribuição
+
+Contribuições são bem-vindas! Certifique-se de seguir os padrões de código do projeto e garantir que todos os testes estejam passando.
+
+## Licença
+
+MIT License
