@@ -1,6 +1,3 @@
-import { type ReactNode } from 'react';
-import DashboardIcon from '@mui/icons-material/Dashboard';
-import HomeIcon from '@mui/icons-material/Home';
 import {
   Drawer,
   List,
@@ -11,14 +8,9 @@ import {
   Toolbar,
 } from '@mui/material';
 import { Link, useLocation } from 'react-router-dom';
-import navLinks from '@/config/side-bar-links.json';
+import navLinks, { type NavLinkProps } from '@/config/navLinks.tsx';
 
 const drawerWidth = 240;
-
-const iconMap: { [key: string]: ReactNode } = {
-  Home: <HomeIcon />,
-  Dashboard: <DashboardIcon />,
-};
 
 interface SideBarDrawerProps {
   open: boolean;
@@ -32,7 +24,7 @@ export default function SideBarDrawer({ open, onClose }: SideBarDrawerProps) {
     <div>
       <Toolbar />
       <List>
-        {navLinks.map((link) => (
+        {navLinks.map((link: NavLinkProps) => (
           <ListItem key={link.text} disablePadding>
             <ListItemButton
               component={Link}
@@ -40,7 +32,7 @@ export default function SideBarDrawer({ open, onClose }: SideBarDrawerProps) {
               selected={location.pathname === link.path}
               onClick={onClose}
             >
-              <ListItemIcon>{iconMap[link.icon]}</ListItemIcon>
+              <ListItemIcon>{link.icon}</ListItemIcon>
               <ListItemText primary={link.text} />
             </ListItemButton>
           </ListItem>
