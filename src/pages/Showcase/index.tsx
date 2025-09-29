@@ -36,6 +36,7 @@ import {
   TextField,
   Toolbar,
   Typography,
+  useTheme,
 } from '@mui/material';
 
 export default function ShowcasePage() {
@@ -47,6 +48,17 @@ export default function ShowcasePage() {
   const [ratingValue, setRatingValue] = useState<number | null>(3);
   const [tabValue, setTabValue] = useState(0);
   const [accordionExpanded, setAccordionExpanded] = useState(false);
+
+  const theme = useTheme();
+
+  const themeColors = [
+    { name: 'Primary', color: theme.palette.primary.main },
+    { name: 'Secondary', color: theme.palette.secondary.main },
+    { name: 'Info', color: theme.palette.info.main },
+    { name: 'Warning', color: theme.palette.warning.main },
+    { name: 'Success', color: theme.palette.success.main },
+    { name: 'Error', color: theme.palette.error.main },
+  ];
 
   return (
     <Container maxWidth="lg">
@@ -65,7 +77,6 @@ export default function ShowcasePage() {
       </AppBar>
 
       <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 4 }}>
-        {/* Buttons */}
         <Box sx={{ flex: '1 1 48%' }}>
           <Card>
             <CardContent>
@@ -95,7 +106,6 @@ export default function ShowcasePage() {
           </Card>
         </Box>
 
-        {/* TextField */}
         <Box sx={{ flex: '1 1 48%' }}>
           <Card>
             <CardContent>
@@ -120,7 +130,6 @@ export default function ShowcasePage() {
           </Card>
         </Box>
 
-        {/* Checkboxes & Radios */}
         <Box sx={{ flex: '1 1 48%' }}>
           <Card>
             <CardContent>
@@ -149,7 +158,6 @@ export default function ShowcasePage() {
           </Card>
         </Box>
 
-        {/* Slider & Switch */}
         <Box sx={{ flex: '1 1 48%' }}>
           <Card>
             <CardContent>
@@ -176,7 +184,6 @@ export default function ShowcasePage() {
           </Card>
         </Box>
 
-        {/* Rating */}
         <Box sx={{ flex: '1 1 48%' }}>
           <Card>
             <CardContent>
@@ -192,7 +199,6 @@ export default function ShowcasePage() {
           </Card>
         </Box>
 
-        {/* Tabs */}
         <Box sx={{ flex: '1 1 48%' }}>
           <Card>
             <CardContent>
@@ -212,7 +218,6 @@ export default function ShowcasePage() {
           </Card>
         </Box>
 
-        {/* Accordion */}
         <Box sx={{ flex: '1 1 48%' }}>
           <Card>
             <CardContent>
@@ -234,7 +239,6 @@ export default function ShowcasePage() {
           </Card>
         </Box>
 
-        {/* Avatars & Badges */}
         <Box sx={{ flex: '1 1 48%' }}>
           <Card>
             <CardContent>
@@ -251,7 +255,6 @@ export default function ShowcasePage() {
           </Card>
         </Box>
 
-        {/* Progress */}
         <Box sx={{ flex: '1 1 48%' }}>
           <Card>
             <CardContent>
@@ -266,7 +269,6 @@ export default function ShowcasePage() {
           </Card>
         </Box>
 
-        {/* Table */}
         <Box sx={{ flex: '1 1 100%' }}>
           <Card>
             <CardContent>
@@ -296,6 +298,37 @@ export default function ShowcasePage() {
                   </TableBody>
                 </Table>
               </TableContainer>
+            </CardContent>
+          </Card>
+        </Box>
+
+        <Box sx={{ flex: '1 1 100%' }}>
+          <Card>
+            <CardContent>
+              <Typography variant="h5" gutterBottom>
+                Paleta de Cores do Tema
+              </Typography>
+              <Stack direction="row" spacing={2} flexWrap="wrap">
+                {themeColors.map(({ name, color }) => (
+                  <Box
+                    key={name}
+                    data-testid={`theme-color-${name.toLowerCase()}`}
+                    sx={{
+                      width: 100,
+                      height: 100,
+                      backgroundColor: color,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      borderRadius: 2,
+                      color: '#000',
+                      fontWeight: 'bold',
+                    }}
+                  >
+                    {name}
+                  </Box>
+                ))}
+              </Stack>
             </CardContent>
           </Card>
         </Box>

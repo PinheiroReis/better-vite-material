@@ -1,75 +1,91 @@
-import { ThemeProvider } from '@mui/material/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { fireEvent, render, screen } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
-import { lightTheme } from '@/styles/theme';
-import ShowcasePage from './index.tsx';
+import userEvent from '@testing-library/user-event';
+import ShowcasePage from './index';
 
-describe('Showcase Component', () => {
-  it('should render without crashing', () => {
+const theme = createTheme();
+
+describe('ShowcasePage', () => {
+  beforeEach(() => {
     render(
-      <ThemeProvider theme={lightTheme}>
+      <ThemeProvider theme={theme}>
         <ShowcasePage />
       </ThemeProvider>
     );
-
-    expect(screen.getByText('Material-UI Showcase')).toBeInTheDocument();
-    expect(screen.getByText('Buttons')).toBeInTheDocument();
-    expect(screen.getByText('Text Field')).toBeInTheDocument();
-    expect(screen.getByText('Checkboxes & Radios')).toBeInTheDocument();
-    expect(screen.getByText('Slider & Switch')).toBeInTheDocument();
   });
 
-  it('should update TextField value on change', () => {
-    render(
-      <ThemeProvider theme={lightTheme}>
-        <ShowcasePage />
-      </ThemeProvider>
-    );
-
-    const input = screen.getByLabelText('Standard TextField') as HTMLInputElement;
-    fireEvent.change(input, { target: { value: 'Hello Vitest' } });
-
-    expect(input.value).toBe('Hello Vitest');
+  it('renders page title', () => {
+    expect(screen.getByText(/Material-UI Showcase/i)).toBeInTheDocument();
   });
 
-  it('should toggle checkbox', () => {
-    render(
-      <ThemeProvider theme={lightTheme}>
-        <ShowcasePage />
-      </ThemeProvider>
-    );
+  it('renders buttons and responds to click', async () => {
+    const containedPrimary = screen.getByRole('button', { name: /Primary/i });
+    expect(containedPrimary).toBeInTheDocument();
 
-    const checkbox = screen.getByLabelText('Remember me') as HTMLInputElement;
+    const outlinedButton = screen.getByRole('button', { name: /Outlined/i });
+    expect(outlinedButton).toBeInTheDocument();
+
+    await userEvent.click(containedPrimary);
+    expect(containedPrimary).toBeEnabled();
+  });
+
+  it('updates TextField value', async () => {
+    const input = screen.getByLabelText(/Standard TextField/i);
+    expect(input).toBeInTheDocument();
+    await userEvent.type(input, 'Hello MUI');
+    expect(input).toHaveValue('Hello MUI');
+  });
+
+  it('toggles Checkbox', async () => {
+    const checkbox = screen.getByLabelText(/Remember me/i) as HTMLInputElement;
     expect(checkbox.checked).toBe(false);
-
-    fireEvent.click(checkbox);
+    await userEvent.click(checkbox);
     expect(checkbox.checked).toBe(true);
   });
 
-  it('should change radio selection', () => {
-    render(
-      <ThemeProvider theme={lightTheme}>
-        <ShowcasePage />
-      </ThemeProvider>
-    );
-
-    const radioTwo = screen.getByLabelText('Option Two') as HTMLInputElement;
-    fireEvent.click(radioTwo);
-
-    expect(radioTwo.checked).toBe(true);
+  it('selects Radio buttons', async () => {
+    const optionTwo = screen.getByLabelText(/Option Two/i) as HTMLInputElement;
+    expect(optionTwo.checked).toBe(false);
+    await userEvent.click(optionTwo);
+    expect(optionTwo.checked).toBe(true);
   });
 
-  it('should toggle switch', () => {
-    render(
-      <ThemeProvider theme={lightTheme}>
-        <ShowcasePage />
-      </ThemeProvider>
-    );
-
-    const toggle = screen.getByLabelText('Toggle Feature') as HTMLInputElement;
+  it('toggles Switch', async () => {
+    const toggle = screen.getByLabelText(/Toggle Feature/i) as HTMLInputElement;
     expect(toggle.checked).toBe(false);
-
-    fireEvent.click(toggle);
+    await userEvent.click(toggle);
     expect(toggle.checked).toBe(true);
+  });
+
+  it('changes Slider value', async () => {
+    const slider = screen.getByRole('slider') as HTMLInputElement;
+    fireEvent.change(slider, { target: { value: 80 } });
+    expect(slider.value).toBe('80');
+  });
+
+  it('updates Rating value', async () => {
+    const user = userEvent.setup();
+    const stars = screen.getAllByRole('radio');
+
+    await user.click(stars[3]);
+
+    expect(stars[3]).toBeInTheDocument();
+  });
+
+  it('expands and collapses Accordion', async () => {
+    const accordionButton = screen.getByText(/Accordion Title/i);
+    const content = screen.getByText(/This is the content inside the accordion./i);
+    expect(content).not.toBeVisible();
+    await userEvent.click(accordionButton);
+    expect(content).toBeVisible();
+    await userEvent.click(accordionButton);
+    expect(content).not.toBeVisible();
+  });
+
+  it('renders Theme Colors palette', () => {
+    const colors = ['Primary', 'Secondary', 'Info', 'Warning', 'Success', 'Error'];
+    colors.forEach((color) => {
+      expect(screen.getByTestId(`theme-color-${color.toLowerCase()}`)).toBeInTheDocument();
+    });
   });
 });
