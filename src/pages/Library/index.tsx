@@ -3,6 +3,8 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
+import { Navigate } from 'react-router-dom';
+import { useAuth } from '@/contexts/AuthContext';
 
 const books = [
   {
@@ -92,6 +94,8 @@ const LibraryContainer = styled(Stack)(({ theme }) => ({
 }));
 
 export default function Library() {
+  const { logout, isAuthenticated } = useAuth();
+  if (!isAuthenticated) return <Navigate to="/login" replace />;
   return (
     <>
       <CssBaseline enableColorScheme />
@@ -99,6 +103,22 @@ export default function Library() {
         <Typography component="h1" variant="h4" sx={{ mb: 3 }}>
           Biblioteca
         </Typography>
+        <button
+          onClick={logout}
+          style={{
+            alignSelf: 'flex-end',
+            marginBottom: 16,
+            cursor: 'pointer',
+            padding: '8px 16px',
+            fontSize: '16px',
+            border: 'none',
+            borderRadius: '4px',
+            backgroundColor: '#1976d2',
+            color: 'white',
+          }}
+        >
+          Logout
+        </button>
         {books.map((book) => (
           <Card key={book.id} variant="outlined">
             <Typography variant="h6">{book.title}</Typography>

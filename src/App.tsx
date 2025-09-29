@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import Layout from '@/components/Layout';
+import { AuthProvider } from '@/providers/AuthProvider';
 import { ThemeProvider } from '@/providers/ThemeProvider';
 
 function App() {
@@ -12,4 +13,12 @@ function App() {
   );
 }
 
-export default App;
+function AppWrapper() {
+  return (
+    <AuthProvider>
+      <App />
+    </AuthProvider>
+  );
+}
+
+export default AppWrapper;

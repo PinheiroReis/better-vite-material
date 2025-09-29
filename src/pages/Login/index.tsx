@@ -13,6 +13,7 @@ import { styled } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '@/contexts/AuthContext';
 import ForgotPassword from './components/ForgotPassword';
 
 const Card = styled(MuiCard)(({ theme }) => ({
@@ -60,6 +61,7 @@ export default function SignIn() {
   const [passwordErrorMessage, setPasswordErrorMessage] = React.useState('');
   const [open, setOpen] = React.useState(false);
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -76,6 +78,7 @@ export default function SignIn() {
     const password = data.get('password');
     if (email === 'test@email.com' && password === 'testpassword123') {
       alert('Login realizado com sucesso!');
+      login();
       navigate('/library');
     } else {
       alert('Credenciais inválidas.');
