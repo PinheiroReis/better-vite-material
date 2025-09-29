@@ -13,4 +13,9 @@ describe('PageHome component', () => {
       screen.getByText(/You can start editing the page by modifying the file below:/i)
     ).toBeInTheDocument();
   });
+
+  test('PageHome renders', () => {
+    render(<PageHome />);
+    expect(screen.getByText(/home/i)).toBeInTheDocument();
+  });
 });

@@ -17,4 +17,9 @@ describe('DashboardPage', () => {
     expect(screen.getByText(/Card 1/i)).toBeInTheDocument();
     expect(screen.getByText(/Card 2/i)).toBeInTheDocument();
   });
+
+  test('DashboardPage renders', () => {
+    render(<DashboardPage />);
+    expect(screen.getByText(/dashboard/i)).toBeInTheDocument();
+  });
 });

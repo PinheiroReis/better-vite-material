@@ -88,4 +88,8 @@ describe('ShowcasePage', () => {
       expect(screen.getByTestId(`theme-color-${color.toLowerCase()}`)).toBeInTheDocument();
     });
   });
+
+  it('Showcase page renders', () => {
+    expect(screen.getByText(/showcase/i)).toBeInTheDocument();
+  });
 });
