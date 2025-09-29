@@ -38,7 +38,7 @@ import {
   Typography,
 } from '@mui/material';
 
-export default function Showcase() {
+export default function ShowcasePage() {
   const [textFieldValue, setTextFieldValue] = useState('');
   const [checkboxChecked, setCheckboxChecked] = useState(false);
   const [radioValue, setRadioValue] = useState('one');
