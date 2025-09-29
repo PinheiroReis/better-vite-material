@@ -9,14 +9,14 @@ export interface NavLinkProps {
 
 const navLink: NavLinkProps[] = [
   {
-    text: 'Dashboard',
-    path: '/dashboard',
-    icon: <Dashboard />,
-  },
-  {
     text: 'Login',
     path: '/login',
     icon: <Login />,
+  },
+  {
+    text: 'Dashboard',
+    path: '/dashboard',
+    icon: <Dashboard />,
   },
   {
     text: 'Library',

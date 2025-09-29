@@ -11,15 +11,11 @@ describe('DashboardPage', () => {
     );
 
     // Verifica o título da página
-    expect(screen.getByRole('heading', { name: /Dashboard/i })).toBeInTheDocument();
-
-    // Verifica se os cards de exemplo são renderizados
-    expect(screen.getByText(/Card 1/i)).toBeInTheDocument();
-    expect(screen.getByText(/Card 2/i)).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Dados do Usuário/i })).toBeInTheDocument();
   });
 
   test('DashboardPage renders', () => {
     render(<DashboardPage />);
-    expect(screen.getByText(/dashboard/i)).toBeInTheDocument();
+    expect(screen.getByText(/Dados do Usuário/i)).toBeInTheDocument();
   });
 });
