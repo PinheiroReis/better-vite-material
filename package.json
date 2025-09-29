@@ -15,7 +15,10 @@
     "test": "npm run typecheck && npm run prettier && npm run lint && npm run vitest"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
     "@ianvs/prettier-plugin-sort-imports": "^4.7.0",
+    "@mui/material": "^7.3.2",
     "@tailwindcss/postcss": "^4.1.13",
     "@tailwindcss/vite": "^4.1.13",
     "postcss": "^8.5.6",
@@ -49,6 +52,6 @@
     "vitest": "^3.2.4"
   },
   "overrides": {
-    "whatwg-url": "13.0.0"
+    "react-is": "^18.3.1"
   }
 }
