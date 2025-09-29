@@ -10,8 +10,8 @@ describe('SideBarDrawer Component', () => {
       </MemoryRouter>
     );
 
-    expect(screen.getByRole('link', { name: /home/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /dashboard/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /library/i })).toBeInTheDocument();
   });
 
   it('should not render content when closed', () => {
@@ -21,6 +21,6 @@ describe('SideBarDrawer Component', () => {
       </MemoryRouter>
     );
 
-    expect(screen.queryByRole('link', { name: /home/i })).toBeNull();
+    expect(screen.queryByRole('link', { name: /dashboard/i })).toBeNull();
   });
 });

@@ -30,8 +30,8 @@ describe('Header Component', () => {
     const menuButton = screen.getByLabelText(/open drawer/i);
     fireEvent.click(menuButton);
 
-    expect(screen.getByRole('link', { name: /home/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /dashboard/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /library/i })).toBeInTheDocument();
   });
 
   it('toggles the theme icon when the theme button is clicked', () => {
