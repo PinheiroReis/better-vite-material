@@ -1,15 +1,16 @@
 import { render, screen } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
-import PageHome from './index.tsx';
+import PageHome from './index';
 
 describe('PageHome component', () => {
-  it('should render the home page', () => {
+  it('should render the home page with Material-UI components', () => {
     render(<PageHome />);
-    expect(screen.getByText('The Better Vite Template')).toBeInTheDocument();
+
+    // Verifica se o título principal renderizado pelo subcomponente Title está na página
+    expect(screen.getByRole('heading', { name: /Better Vite/i, level: 1 })).toBeInTheDocument();
+
+    // Verifica se o texto renderizado pelo subcomponente Welcome está na página
     expect(
-      screen.getByText('Welcome to Better Vite, the best way to use vite.')
+      screen.getByText(/You can start editing the page by modifying the file below:/i)
     ).toBeInTheDocument();
-    expect(screen.getByTestId('vite_img')).toBeInTheDocument();
-    expect(screen.getByTestId('react_img')).toBeInTheDocument();
   });
 });

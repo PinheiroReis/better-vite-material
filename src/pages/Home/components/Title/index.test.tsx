@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
-import Title from './index.tsx';
+import Title from './index';
 
 describe('Title component', () => {
-  it('should render the Title component', () => {
+  it('should render the title with the correct heading level', () => {
     render(<Title />);
-    expect(screen.getByText('The Better Vite Template')).toBeInTheDocument();
+    const titleElement = screen.getByRole('heading', { level: 1 });
+    expect(titleElement).toHaveTextContent('Better Vite');
   });
 });

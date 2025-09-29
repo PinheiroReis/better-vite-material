@@ -1,18 +1,22 @@
 import { render, screen } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
-import IconsTools from './index.tsx';
+import IconsTools from './index';
 
 describe('IconsTools component', () => {
-  it('should render React and Vite icons.', () => {
+  it('should render logos with links', () => {
     render(<IconsTools />);
 
-    const viteImg = screen.getByTestId('vite_img');
-    const reactImg = screen.getByTestId('react_img');
+    // Verifica se os links estão presentes
+    const viteLink = screen.getByRole('link', { name: /vite/i });
+    const reactLink = screen.getByRole('link', { name: /react/i });
 
-    expect(viteImg).toBeInTheDocument();
-    expect(reactImg).toBeInTheDocument();
+    expect(viteLink).toBeInTheDocument();
+    expect(viteLink).toHaveAttribute('href', 'https://vitejs.dev');
 
-    expect(viteImg).toHaveAttribute('alt', 'vite_icon');
-    expect(reactImg).toHaveAttribute('alt', 'react_icon');
+    expect(reactLink).toBeInTheDocument();
+    expect(reactLink).toHaveAttribute('href', 'https://react.dev');
+
+    // Verifica o sinal de "+"
+    const plusSign = screen.getByText('+');
+    expect(plusSign).toBeInTheDocument();
   });
 });
