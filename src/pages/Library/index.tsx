@@ -3,7 +3,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 
 const books = [
@@ -94,6 +94,7 @@ const LibraryContainer = styled(Stack)(({ theme }) => ({
 }));
 
 export default function Library() {
+  const navigate = useNavigate();
   const { logout, isAuthenticated } = useAuth();
   if (!isAuthenticated) return <Navigate to="/login" replace />;
   return (
@@ -104,7 +105,10 @@ export default function Library() {
           Biblioteca
         </Typography>
         <button
-          onClick={logout}
+          onClick={() => {
+            logout();
+            navigate('/login');
+          }}
           style={{
             alignSelf: 'flex-end',
             marginBottom: 16,

@@ -13,12 +13,10 @@ function App() {
   );
 }
 
-function AppWrapper() {
+export default function AppWrapper() {
   return (
     <AuthProvider>
       <App />
     </AuthProvider>
   );
 }
-
-export default AppWrapper;

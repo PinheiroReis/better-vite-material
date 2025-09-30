@@ -1,5 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom';
-import App from '@/App.tsx';
+import AppWrapper from '@/App.tsx';
 import ThrowError from '@/components/ThrowError.tsx';
 import DashboardPage from '@/pages/Dashboard/index.tsx';
 import NotFound from '@/pages/Errors/NotFound/index.tsx';
@@ -10,7 +10,7 @@ import SignIn from '@/pages/Login';
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />,
+    element: <AppWrapper />,
     errorElement: <ServerError />,
     children: [
       { path: 'dashboard', element: <DashboardPage /> },
