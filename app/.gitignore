@@ -10,3 +10,4 @@ node_modules
 # production
 dist/
 *.tsbuildinfo
+.eslintcache
