@@ -5,7 +5,7 @@ import DashboardPage from '@/pages/Dashboard/index.tsx';
 import NotFound from '@/pages/Errors/NotFound/index.tsx';
 import ServerError from '@/pages/Errors/ServerError/index.tsx';
 import Library from '@/pages/Library/index.tsx';
-import SignIn from '@/pages/Login';
+import LoginPage from '@/pages/Login/index.tsx';
 
 export const router = createBrowserRouter([
   {
@@ -14,9 +14,13 @@ export const router = createBrowserRouter([
     errorElement: <ServerError />,
     children: [
       { path: 'dashboard', element: <DashboardPage /> },
-      { path: 'login', element: <SignIn /> },
+      { path: 'login', element: <LoginPage /> },
       { path: 'error', element: <ThrowError /> },
       { path: 'library', element: <Library /> },
+      {
+        path: 'healthcheck',
+        element: <div>OK</div>,
+      },
       { path: '*', element: <NotFound /> },
     ],
   },

@@ -1,0 +1,16 @@
+# uv #
+uv.lock
+dist
+
+# Django #
+*.log
+*.pot
+*.pyc
+__pycache__
+.venv/
+db.sqlite3
+media/
+migrations/
+
+# Envs #
+.env

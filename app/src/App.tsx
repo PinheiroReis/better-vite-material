@@ -3,20 +3,14 @@ import Layout from '@/components/Layout';
 import { AuthProvider } from '@/providers/AuthProvider';
 import { ThemeProvider } from '@/providers/ThemeProvider';
 
-function App() {
-  return (
-    <ThemeProvider>
-      <Layout>
-        <Outlet />
-      </Layout>
-    </ThemeProvider>
-  );
-}
-
-export default function AppWrapper() {
+export default function App() {
   return (
     <AuthProvider>
-      <App />
+      <ThemeProvider>
+        <Layout>
+          <Outlet />
+        </Layout>
+      </ThemeProvider>
     </AuthProvider>
   );
 }

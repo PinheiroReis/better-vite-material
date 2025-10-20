@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Toolbar } from '@mui/material';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import MuiCard from '@mui/material/Card';
@@ -55,7 +56,7 @@ const SignInContainer = styled(Stack)(({ theme }) => ({
   },
 }));
 
-export default function SignIn() {
+export default function LoginPage() {
   const [emailError, setEmailError] = React.useState(false);
   const [emailErrorMessage, setEmailErrorMessage] = React.useState('');
   const [passwordError, setPasswordError] = React.useState(false);
@@ -116,6 +117,7 @@ export default function SignIn() {
   return (
     <>
       <CssBaseline enableColorScheme />
+      <Toolbar />
       <SignInContainer direction="column" justifyContent="space-between">
         <Card variant="outlined">
           <Typography
